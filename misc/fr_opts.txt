@@ -1,1 +1,1 @@
-disk=true,filename=recording.jfr,settings=profile
+disk=true,filename=recording.jfr,settings=profile,delay=45s,duration=5m
