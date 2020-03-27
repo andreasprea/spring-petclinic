@@ -6,4 +6,8 @@ services:
         ports: 
             - 8080:8080
             - 9090:9090
- 
+        deploy:
+            resources:
+                limits:
+                    memory: 512M
+  
