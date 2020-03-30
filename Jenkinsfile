@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'openjdk:8' 
+            image 'openjdk:11-jre-buster' 
             args '-v /root/.m2:/root/.m2' 
         }
     }
