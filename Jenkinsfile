@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Initial info') {
             steps {
-                sh 'echo "Files in ${pwd}:"'
+                sh 'echo "Files in workdir:"'
                 sh 'ls -lah'
             }
         }
@@ -26,7 +26,7 @@ pipeline {
                 echo 'Starting to build docker image'
 
                 script {
-                    docker.withRegistry('172.17.201.247:443', 'harbor') {
+                    docker.withRegistry('https://172.17.201.247', 'harbor') {
                         def customImage = docker.build("172.17.201.247/library/my-petclinic:${env.BUILD_ID}")
                         echo "pushing image to harbor registry:"
                         customImage.push()
