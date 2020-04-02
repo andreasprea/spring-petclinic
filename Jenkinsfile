@@ -26,7 +26,7 @@ pipeline {
                 echo 'Starting to build docker image'
 
                 script {
-                    docker.withRegistry('https://172.17.201.247', 'harbor') {
+                    docker.withRegistry('http://172.17.201.247', 'harbor') {
                         def customImage = docker.build("172.17.201.247/library/my-petclinic:${env.BUILD_ID}")
                         echo "pushing image to harbor registry:"
                         customImage.push()
