@@ -17,7 +17,7 @@ pipeline {
             steps {
                 sh 'echo "Files in workdir:"'
                 sh 'ls -lah'
-                echo 'AGENT: "${params.AGENT}"'
+                echo "AGENT: ${params.AGENT}"
             }
         }
         
