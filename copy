@@ -32,3 +32,11 @@
           </execution>
         </executions>
       </plugin>
+
+
+
+docker.withRegistry('http://172.17.201.247', 'harbor') {
+    def customImage = docker.build("172.17.201.247/library/my-petclinic:${env.BUILD_ID}")
+    echo "pushing image to harbor registry:"
+    customImage.push()
+}
