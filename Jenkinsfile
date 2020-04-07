@@ -6,6 +6,8 @@ pipeline {
     //     }
     // }
 
+    agent any
+
     parameters {
         choice(name: 'AGENT', choices: ['unix_container', 'windows_installer'], description: 'Choose the target:')
     }
