@@ -31,7 +31,7 @@ pipeline {
 
         stage('Jacoco Covarage Test'){
             steps {
-                jacoco(buildOverBuild: true, execPattern: '**/target/*.exec', classPattern: '**/target/classes', sourcePattern: '**/src/main/java', exclusionPattern: '**/src/test*')
+                jacoco(buildOverBuild: true, deltaBranchCoverage: '1', execPattern: '**/target/*.exec', classPattern: '**/target/classes', sourcePattern: '**/src/main/java', exclusionPattern: '**/src/test*')
             }
         }
 
