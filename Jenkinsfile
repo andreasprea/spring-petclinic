@@ -29,6 +29,12 @@ pipeline {
             }
         }
 
+        stage('Artifact Collect') {
+            steps {
+                archiveArtifacts(artifacts: '**/target/*.jar', fingerprint: true, onlyIfSuccessful: true)
+            }
+        }
+
         stage('Jacoco Covarage Test'){
             steps {
                 jacoco(buildOverBuild: true, deltaBranchCoverage: '1', execPattern: '**/target/*.exec', classPattern: '**/target/classes', sourcePattern: '**/src/main/java', exclusionPattern: '**/src/test*')
