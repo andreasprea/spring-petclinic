@@ -13,21 +13,21 @@ pipeline {
     // }
 
     stages {
-        stage('Initial info') {
-            steps {
-                sh 'echo "Files in workdir:"'
-                sh 'ls -lah'
-                // echo "AGENT: ${params.AGENT}"
-            }
-        }
-        
-        // stage('Build jar') { 
+        // stage('Initial info') {
         //     steps {
-        //         echo 'Starting to build jar(s)'
-
-        //         sh './mvnw package' 
+        //         sh 'echo "Files in workdir:"'
+        //         sh 'ls -lah'
+        //         // echo "AGENT: ${params.AGENT}"
         //     }
         // }
+        
+        stage('Build jar') { 
+            steps {
+                echo 'Starting to build jar(s)'
+
+                sh './mvnw package' 
+            }
+        }
 
         // stage('Build and push image') {
         //     steps {
