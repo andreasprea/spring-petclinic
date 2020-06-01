@@ -29,6 +29,12 @@ pipeline {
             }
         }
 
+        stage('Jacoco Covarage Test'){
+            steps {
+                jacoco(execPattern: buildOverBuild: true, '**/target/*.exec', classPattern: '**/target/classes', sourcePattern: '**/src/main/java', exclusionPattern: '**/src/test*')
+            }
+        }
+
         // stage('Build and push image') {
         //     steps {
         //         echo 'Starting to build docker image'
