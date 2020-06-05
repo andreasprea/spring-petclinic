@@ -48,8 +48,10 @@ pipeline {
                 execPattern: '**/target/*.exec', classPattern: '**/target/classes', sourcePattern: '**/src/main/java', exclusionPattern: '**/src/test*')
             }
             post {
-                failure {
+                always {
                     echo "${currentBuild.currentResult}"
+                }
+                failure {
                     error 'too low coverage'
                 }
             }
