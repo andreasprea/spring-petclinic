@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/*
+
 package org.springframework.samples.petclinic.system;
 
 import org.junit.jupiter.api.Disabled;
@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;*/
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 /**
  * Test class for {@link CrashController}
@@ -34,7 +34,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @author Colin But
  */
 // Waiting https://github.com/spring-projects/spring-boot/issues/5574
-/*
 @Disabled
 @WebMvcTest(controllers = CrashController.class)
 class CrashControllerTests {
@@ -50,4 +49,3 @@ class CrashControllerTests {
 	}
 
 }
-*/
