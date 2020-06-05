@@ -44,9 +44,15 @@ pipeline {
                 execPattern: '**/target/*.exec', classPattern: '**/target/classes', sourcePattern: '**/src/main/java', exclusionPattern: '**/src/test*')
             }
             post {
-                always {
+                failure {
                     echo "${currentBuild.currentResult}"
                 }
+            }
+        }
+
+        stage('Post Jacoco'){
+            steps {
+                echo "post jacoco"
             }
         }
 
