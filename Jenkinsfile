@@ -45,7 +45,8 @@ pipeline {
             }
             post {
                 failure {
-                    echo "${currentBuild.currentResult}"
+                    // echo "${currentBuild.currentResult}"
+                    error 'too low coverage'
                 }
             }
         }
