@@ -37,7 +37,16 @@ pipeline {
 
         stage('Jacoco Covarage Test'){
             steps {
-                jacoco(buildOverBuild: true, deltaInstructionCoverage: '-10', execPattern: '**/target/*.exec', classPattern: '**/target/classes', sourcePattern: '**/src/main/java', exclusionPattern: '**/src/test*')
+                jacoco(buildOverBuild: true, deltaInstructionCoverage: '1', 
+                // if the coverage is above minimum but below maximum the build becomes UNSTABLE and the next stages get skipped
+                maximumInstructionCoverage: '99', maximumLineCoverage: '99', maximumMethodCoverage: '99',
+                minimumInstructionCoverage: '99', minimumLineCoverage: '99', minimumMethodCoverage: '99',
+                execPattern: '**/target/*.exec', classPattern: '**/target/classes', sourcePattern: '**/src/main/java', exclusionPattern: '**/src/test*')
+            }
+            post {
+                always {
+                    echo "${currentBuild.currentResult}"
+                }
             }
         }
 
