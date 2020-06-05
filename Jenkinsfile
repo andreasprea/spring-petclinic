@@ -37,7 +37,7 @@ pipeline {
 
         stage('Jacoco Covarage Test'){
             steps {
-                jacoco(buildOverBuild: true, deltaInstructionCoverage: '1', 
+                jacoco(changeBuildStatus: true, buildOverBuild: true, //deltaInstructionCoverage: '1', 
                 // if the coverage is above minimum but below maximum the build becomes UNSTABLE and the next stages get skipped
                 maximumInstructionCoverage: '99', maximumLineCoverage: '99', maximumMethodCoverage: '99',
                 minimumInstructionCoverage: '99', minimumLineCoverage: '99', minimumMethodCoverage: '99',
