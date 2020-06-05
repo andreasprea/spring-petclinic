@@ -12,6 +12,10 @@ pipeline {
     //     choice(name: 'AGENT', choices: ['unixxxxxx_container', 'windows_installer'], description: 'Choose the target:')
     // }
 
+    options {
+        skipStagesAfterUnstable()
+    }
+
     stages {
         // stage('Initial info') {
         //     steps {
