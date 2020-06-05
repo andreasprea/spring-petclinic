@@ -39,13 +39,13 @@ pipeline {
             steps {
                 jacoco(changeBuildStatus: true, buildOverBuild: true, //deltaInstructionCoverage: '1', 
                 // if the coverage is above minimum but below maximum the build becomes UNSTABLE and the next stages get skipped
-                maximumInstructionCoverage: '99', maximumLineCoverage: '99', maximumMethodCoverage: '99',
-                minimumInstructionCoverage: '99', minimumLineCoverage: '99', minimumMethodCoverage: '99',
+                maximumInstructionCoverage: '75', maximumLineCoverage: '75', maximumMethodCoverage: '75',
+                minimumInstructionCoverage: '85', minimumLineCoverage: '85', minimumMethodCoverage: '85',
                 execPattern: '**/target/*.exec', classPattern: '**/target/classes', sourcePattern: '**/src/main/java', exclusionPattern: '**/src/test*')
             }
             post {
                 failure {
-                    // echo "${currentBuild.currentResult}"
+                    echo "${currentBuild.currentResult}"
                     error 'too low coverage'
                 }
             }
