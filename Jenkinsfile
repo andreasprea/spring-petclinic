@@ -40,11 +40,13 @@ pipeline {
         }
 
         stage('Jacoco Covarage Test'){
+            // if the coverage is above minimum but below maximum the build status is UNSTABLE
+            // if the coverage is below minimum and below maximum the build status is FAILURE
+            // if the coverage is above minimum and above maximum the build becomes SUCCESS
             steps {
-                jacoco(changeBuildStatus: true, buildOverBuild: true, //deltaInstructionCoverage: '1', 
-                // if the coverage is above minimum but below maximum the build becomes UNSTABLE and the next stages get skipped
-                maximumInstructionCoverage: '99', maximumLineCoverage: '99', maximumMethodCoverage: '99',
-                minimumInstructionCoverage: '75', minimumLineCoverage: '75', minimumMethodCoverage: '75',
+                jacoco(changeBuildStatus: true, buildOverBuild: true, deltaInstructionCoverage: '1', 
+                //maximumInstructionCoverage: '99', maximumLineCoverage: '99', maximumMethodCoverage: '99',
+                //minimumInstructionCoverage: '75', minimumLineCoverage: '75', minimumMethodCoverage: '75',
                 execPattern: '**/target/*.exec', classPattern: '**/target/classes', sourcePattern: '**/src/main/java', exclusionPattern: '**/src/test*')
             }
             post {
