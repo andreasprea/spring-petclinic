@@ -33,11 +33,11 @@ pipeline {
             }
         }
 
-        stage('Artifact Collect') {
-            steps {
-                archiveArtifacts(artifacts: '**/target/*.jar', fingerprint: true, onlyIfSuccessful: true)
-            }
-        }
+        // stage('Artifact Collect') {
+        //     steps {
+        //         archiveArtifacts(artifacts: '**/target/*.jar', fingerprint: true, onlyIfSuccessful: true)
+        //     }
+        // }
 
         stage('Jacoco Covarage Test'){
             // if the coverage is above minimum but below maximum the build status is UNSTABLE
@@ -52,6 +52,8 @@ pipeline {
             post {
                 always {
                     echo "${currentBuild.currentResult}"
+
+                    sh 'printenv'
                 }
                 failure {
                     error 'too low coverage'
