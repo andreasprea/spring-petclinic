@@ -44,8 +44,8 @@ pipeline {
             // if the coverage is below minimum and below maximum the build status is FAILURE
             // if the coverage is above minimum and above maximum the build becomes SUCCESS
             steps {
-                jacoco(//changeBuildStatus: true, buildOverBuild: true, 
-                //deltaBranchCoverage: '10', deltaClassCoverage: '99', deltaComplexityCoverage: '99', deltaInstructionCoverage: '99', deltaLineCoverage: '99', deltaMethodCoverage: '99' 
+                jacoco(changeBuildStatus: true, buildOverBuild: true, 
+                deltaBranchCoverage: '10', deltaClassCoverage: '99', deltaComplexityCoverage: '99', deltaInstructionCoverage: '99', deltaLineCoverage: '99', deltaMethodCoverage: '99' 
                 //maximumInstructionCoverage: '99', maximumLineCoverage: '99', maximumMethodCoverage: '99',
                 //minimumInstructionCoverage: '75', minimumLineCoverage: '75', minimumMethodCoverage: '75',
                 execPattern: '**/target/*.exec', classPattern: '**/target/classes', sourcePattern: '**/src/main/java', exclusionPattern: '**/src/test*')
